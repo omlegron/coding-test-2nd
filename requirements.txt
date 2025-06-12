@@ -13,6 +13,7 @@ pymupdf==1.23.26  # fitz
 langchain==0.1.0
 langchain-openai==0.0.2
 langchain-community==0.0.10
+# langchain_community==0.3.24
 openai==1.6.1
 tiktoken==0.5.2
 
@@ -22,7 +23,7 @@ faiss-cpu==1.7.4
 
 # 임베딩 및 텍스트 처리
 sentence-transformers==2.2.2
-transformers==4.36.2
+transformers==4.29.2
 torch==2.1.2
 
 # 데이터 처리
@@ -46,3 +47,8 @@ loguru==0.7.2
 pytest==7.4.3
 pytest-asyncio==0.21.1
 httpx==0.25.2 
+
+# Add New
+tokenizers==0.13.3
+huggingface-hub==0.14.1
+accelerate==0.27.2

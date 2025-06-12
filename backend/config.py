@@ -34,6 +34,7 @@ class Settings(BaseSettings):
     host: str = os.getenv("HOST", "0.0.0.0")
     port: int = int(os.getenv("PORT", "8000"))
     debug: bool = os.getenv("DEBUG", "True").lower() == "true"
+    use_gpu: bool = os.getenv("USE_GPU", False)
     
     # CORS configuration
     allowed_origins: List[str] = os.getenv(

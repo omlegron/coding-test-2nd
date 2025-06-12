@@ -37,6 +37,7 @@ class UploadResponse(BaseModel):
     filename: str
     chunks_count: int
     processing_time: float
+    message: str
 
 
 class ChunkInfo(BaseModel):

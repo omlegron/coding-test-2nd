@@ -1,5 +1,11 @@
 # RAG-based Financial Statement Q&A System Coding Challenge
 
+## New Settings / Configuration accelerate
+1. **accelerate config**
+2. Just Set Yes, For CPU 
+2. Then Set All To NO
+
+
 ## Overview
 Build a full-stack application using **RAG (Retrieval Augmented Generation)** technology:
 1. **Next.js** as the frontend framework
