@@ -24,8 +24,6 @@ def load_all_documents_from_json() -> list[Document]:
         if not metadata_list:
             return []
 
-        # Asumsikan data urut berdasarkan waktu upload, ambil yang terakhir
-        # return metadata_list[-1] 
     
         path = os.path.join(settings.pdf_upload_path, f"{metadata_list[-1]['filename']}.chunks.json")
         with open(path, "r") as f:
