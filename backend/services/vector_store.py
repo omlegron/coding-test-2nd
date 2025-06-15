@@ -17,18 +17,20 @@ class VectorStoreService:
         # TODO: Initialize vector store (ChromaDB, FAISS, etc.)
         # pass
         # self._chunks = []
-        self.db_path = "./vector_store"  # Atau ambil dari settings jika perlu
+        self.db_path = "./vector_store_db"  
+        self.collection_name = "bge_base_en_v1_5"
         logger.info(f"📦 Vector DB path: {self.db_path}")
 
-        # ✅ Ganti ke HuggingFace
+        
         self.embedding_model = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/all-MiniLM-L6-v2",
+            model_name="BAAI/bge-base-en-v1.5",
             model_kwargs={"device": "cuda" if settings.use_gpu else "cpu"}
         )
 
         self.vectorstore = Chroma(
             persist_directory=self.db_path,
-            embedding_function=self.embedding_model
+            embedding_function=self.embedding_model,
+            collection_name=self.collection_name  
         )
         logger.info("✅ VectorStore initialized")
 
@@ -52,7 +54,7 @@ class VectorStoreService:
         self.vectorstore.persist()
         logger.info("✅ Documents added and vectorstore persisted.")
     
-    def similarity_search(self, query: str, k: int = 4) -> List[Tuple[Document, float]]:
+    def similarity_search(self, query: str, k: int = 50) -> List[Tuple[Document, float]]:
         """Search for similar documents"""
         # TODO: Implement similarity search
         # - Generate embedding for query

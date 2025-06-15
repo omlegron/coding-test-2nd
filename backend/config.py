@@ -28,7 +28,7 @@ class Settings(BaseSettings):
     
     # Retrieval configuration
     retrieval_k: int = int(os.getenv("RETRIEVAL_K", "5"))
-    similarity_threshold: float = float(os.getenv("SIMILARITY_THRESHOLD", "0.7"))
+    similarity_threshold: float = float(os.getenv("SIMILARITY_THRESHOLD", "0.9"))
     
     # Server configuration
     host: str = os.getenv("HOST", "0.0.0.0")
@@ -37,10 +37,11 @@ class Settings(BaseSettings):
     use_gpu: bool = os.getenv("USE_GPU", False)
     
     # CORS configuration
-    allowed_origins: List[str] = os.getenv(
-        "ALLOWED_ORIGINS", 
-        "http://localhost:3000,http://127.0.0.1:3000"
-    ).split(",")
+    allowed_origins: List[str] = [
+        origin.strip() for origin in os.getenv(
+            "ALLOWED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000"
+        ).split(",")
+    ]
     
     # Logging configuration
     log_level: str = os.getenv("LOG_LEVEL", "INFO")

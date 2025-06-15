@@ -1,7 +1,7 @@
 # RAG-based Financial Statement Q&A System Coding Challenge
 
 ## New Settings / Configuration accelerate
-1. **accelerate config**
+1. CMD type accelerate config
 2. Just Set Yes, For CPU 
 2. Then Set All To NO
 
